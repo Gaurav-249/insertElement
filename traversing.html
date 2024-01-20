@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>html projects.</title>
+	<style>
+		header
+*{
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+	font-family: poppins;
+	text-decoration: none;
+}
+		header{
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: space-around;
+			background-color: #30475e;
+			color: white;
+			padding: 20px 0;
+
+		}
+		header nav a{
+			color: white;
+			margin-right: 30px;
+			font-weight: 500;
+
+		}
+.footer{
+	left: 0px;
+	bottom: 0px;
+	width: 100%;
+	background: magenta;
+	position: fixed;
+	height: 65px;
+}
+body{
+	margin: 0px;
+}
+h1{
+	color: red;
+	font-style: italic;
+}
+.div{
+	height: 250px;
+	width: 250px;
+	border-radius: 300px;
+	box-sizing: border-box;
+	text-shadow: 2px 1px 2px red;
+	margin: 20px auto;
+	padding: 10px;
+	border: 1px solid green;
+}
+.slider-container {
+    width: 800px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+
+  .slide {
+    flex: 0 0 100%;
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .slide.active {
+    transform: translateX(0);
+  }
+
+  .slider-controls {
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .prev-slide,
+  .next-slide {
+    margin: 0 10px;
+  }
+	</style>
+</head>
+<body>
+	<center>
+	<!-- <div class="header"> -->
+			<header>
+			<h2> login form</h2>
+			<nav>
+				<a href="#">HOME</a>
+				<a href="#">BLOG</a>
+				<a href="#">CONTACT</a>
+				<a href="#">ABOUT</a>
+			</nav>
+	</header>
+	<h1>insert new element in array using dsa  </h1>
+	<div class="slider-container">
+    <div class="slider">
+      <div class="slide active" style="background: url('https://cdn.yahoobaba.net/img/slide-1.jpg')"></div>
+      <div class="slide" style="background: url('https://cdn.yahoobaba.net/img/slide-2.jpg')"></div>
+      <div class="slide" style="background: url('https://cdn.yahoobaba.net/img/slide-3.jpg')"></div>
+    </div>
+    <div class="slider-controls">
+      <button class="prev-slide">Prev</button>
+      <button class="next-slide">Next</button>
+    </div>
+  </div>
+	<script type="text/javascript">
+		// let data=[60,30,10,67,40];
+		// let newEl=70;
+		// let position=2;
+		// for(let i=data.length-1;i>=0;i--)
+		// {
+		// 	console.warn(data[i])
+		// 	if(i>=position)
+		// 	{
+		// 		data[i+1]=data[i];
+		// 		if(i==position)
+		// 		{
+		// 			data[i]=newEl;
+		// 		}
+		// 	}
+		// }
+		// console.warn(data)
+		let data=[10,30,89,90,57];
+function ele(){
+		// let data=[10,30,89,90,57];
+	
+		
+		let newEl=document.getElementById('element').value;
+		let position=document.getElementById('position').value;
+		// console.warn(data);
+		for(let i=data.length-1;i>=0;i--)
+		{
+			if(i>=position)
+			{
+				data[i+1]=data[i];
+				if(i==position)
+				{
+					data[i]=newEl;
+				}
+			}
+		}
+		alert(data);
+	    }
+	    const slider = document.querySelector(".slider");
+  const slides = document.querySelectorAll(".slide");
+  const prevBtn = document.querySelector(".prev-slide");
+  const nextBtn = document.querySelector(".next-slide");
+
+  let slideIndex = 0;
+
+  slides[slideIndex].classList.add('active');
+
+  prevBtn.addEventListener('click', prevSlide);
+  nextBtn.addEventListener('click', nextSlide);
+
+  function prevSlide() {
+    slides[slideIndex].classList.remove('active');
+
+    slideIndex = (slideIndex === 0) ? slides.length - 1 : slideIndex - 1;
+    slides[slideIndex].classList.add('active');
+    slider.style.transform = `translateX(-${slideIndex * 100}%)`;
+  }
+
+  function nextSlide() {
+    slides[slideIndex].classList.remove('active');
+
+    slideIndex = (slideIndex === slides.length - 1) ? 0 : slideIndex + 1;
+    slides[slideIndex].classList.add('active');
+    slider.style.transform = `translateX(-${slideIndex * 100}%)`;
+  }
+	</script>
+	
+	<input type="text" name="text" placeholder="position" id="position">
+	<input type="text" name="text" placeholder="new element" id="element">
+	<button onclick="ele()">Get</button>
+	<div class="footer"></div>
+    
+</center>
+</body>
+</html>
